@@ -54,10 +54,10 @@
 
     <div class="P3Header" style="display: flex">
         <div style="width: 220px;">
-            <a href="/">
+            <a href="<%- request.config.get("p3Home") %>">
                 <img class="p3LogoImage" src="/js/p3/resources/images/patric_logo_bg.png"/>
                 <span class="logo">PATRIC</span>
-                <span class="appLabel"><%- request.package.version %><%- request.applicationOptions.appLabel || "" %></span>
+<!--                <span class="appLabel"><%- request.package.version %><%- request.applicationOptions.appLabel || "" %></span> -->
             </a>
         </div>
         <div style="vertical-align: top; min-width: 435px; flex: 1">
@@ -70,20 +70,20 @@
                             <% for (var i = 0; i < servicesMiddle;i++){ %>
                             <div>
                                         <span class="menuItem half"><a class="navigationLink"
-                                                                       href="<%- services[i].href %>"><%- services[i].name %></a></span>
+                                                                       href="<%- request.config.get("p3Home") %><%- services[i].href %>"><%- services[i].name %></a></span>
                                 <span class="menuItem half">
                                     <% if (services[servicesMiddle + i]) { %>
                                     <a class="navigationLink"
-                                       href="<%- services[servicesMiddle + i].href %>"><%- services[servicesMiddle + i].name %></a>
+                                       href="<%- request.config.get("p3Home") %><%- services[servicesMiddle + i].href %>"><%- services[servicesMiddle + i].name %></a>
                                     <% } %>
                                 </span>
                             </div>
                             <% } %>
                             <br>
                             <div>
-                                <span class="menuItem half"><a class="navigationLink" href="/view/Taxonomy/2">All Bacteria</a></span>
+                                <span class="menuItem half"><a class="navigationLink" href="<%- request.config.get("p3Home") %>/view/Taxonomy/2">All Bacteria</a></span>
                                 <span class="menuItem half"><a class="navigationLink"
-                                                               href="/view/Taxonomy/2157">All Archaea</a></span>
+                                                               href="<%- request.config.get("p3Home") %>/view/Taxonomy/2157">All Archaea</a></span>
                             </div>
                         </div>
                     </div>
@@ -97,18 +97,18 @@
                         <div style='vertical-align: top;width:150px;display:inline-block;margin-right: 5px;'>
                             <div class="menuHeader">Data Types</div>
                             <div class="menuItems">
-                                <div><a class="navigationLink" href="/view/DataType/AntibioticResistance">Antibiotic
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/view/DataType/AntibioticResistance">Antibiotic
                                         Resistance</a></div>
-                                <div><a class="navigationLink" href="/view/DataType/Genomes">Genomes</a></div>
-                                <div><a class="navigationLink" href="/view/DataType/GenomicFeatures">Genomic
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/view/DataType/Genomes">Genomes</a></div>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/view/DataType/GenomicFeatures">Genomic
                                         Features</a></div>
-                                <div><a class="navigationLink" href="/view/DataType/Pathways">Pathways</a></div>
-                                <div><a class="navigationLink" href="/view/DataType/ProteinFamilies">Protein
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/view/DataType/Pathways">Pathways</a></div>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/view/DataType/ProteinFamilies">Protein
                                         Families</a></div>
-                                <div><a class="navigationLink" href="/view/DataType/SpecialtyGenes">Specialty
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/view/DataType/SpecialtyGenes">Specialty
                                         Genes</a></div>
                                 <div><a class="navigationLink"
-                                        href="/view/DataType/Transcriptomics">Transcriptomics</a></div>
+                                        href="<%- request.config.get("p3Home") %>/view/DataType/Transcriptomics">Transcriptomics</a></div>
                             </div>
                             <div class="menuHeader">Download Data</div>
                             <div class="menuItems">
@@ -119,64 +119,25 @@
                         <div style='vertical-align:top;width:200px;display: inline-block'>
                             <div class="menuHeader">Specialty Data Collections</div>
                             <div class="menuItems">
-                                <div><a class="navigationLink" href="/content/patric-collaborations"
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/content/patric-collaborations"
                                         target="_blank">PATRIC Collaborations</a></div>
-                                <div><a class="navigationLink" href="/content/patric-dbps" target="_blank">PATRIC
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/content/patric-dbps" target="_blank">PATRIC
                                         DBPs</a></div>
-                                <div><a class="navigationLink" href="/content/niaid-clinical-proteomics"
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/content/niaid-clinical-proteomics"
                                         target="_blank">NIAID Clinical Proteomics</a></div>
-                                <div><a class="navigationLink" href="/content/niaid-genome-sequencing"
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/content/niaid-genome-sequencing"
                                         target="_blank">NIAID Genome Sequencing</a></div>
-                                <div><a class="navigationLink" href="/content/niaid-structural-genomics"
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/content/niaid-structural-genomics"
                                         target="_blank">NIAID Structural Genomics</a></div>
-                                <div><a class="navigationLink" href="/content/niaid-systems-biology"
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/content/niaid-systems-biology"
                                         target="_blank">NIAID Systems Biology</a></div>
-                                <div><a class="navigationLink" href="/content/niaid-functional-genomics"
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/content/niaid-functional-genomics"
                                         target="_blank">NIAID Functional Genomics</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="topMenuButton showOnLoad dijitHidden" data-dojo-type="dijit/form/DropDownButton">
-                <span>WORKSPACES</span>
-
-                <div data-dojo-type="p3/widget/TooltipDialog">
-                    <div>
-                        <div style='vertical-align: top;width:175px;display:inline-block'>
-                            <div class="HideWithAuth">
-                                Please <a class="loginLink">login</a> to view your workspaces.
-                            </div>
-                            <div class="ShowWithAuth">
-                                <div><i class="fa icon-caret-down fa-1x noHoverIcon"
-                                        style="color:#333;cursor:normal;"></i>&nbsp;<a
-                                            class="navigationLink" id="YourWorkspaceLink">Your
-                                        Workspaces</a></div>
-
-                                <div id="YourWorkspaces">
-                                </div>
-
-                                <!--<div><a class="navigationLink" href="/workspace/">Shared with You</a></div>
-                                <div id="SharedWithYouWorkspaces">
-                                </div>
-                                </div>
-
-                                <div><a class="navigationLink" href="/workspace/public">Public</a></div>
-                                <div id="PublicWorkspaces">
-                                </div>
-
-                                <div><a class="navigationLink" href="/workspace/published">Published</a></div>
-                                <div id="PublishedWorkspaces">
-                                </div>-->
-                            </div>
-                        </div>
-                        <div style="vertical-align:top;display:inline-block" class="ShowWithAuth">
-                            <a class="navigationLink" href="/job/">Your Jobs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="topMenuButton showOnLoad dijitHidden" data-dojo-type="dijit/form/DropDownButton">
                 <span>SERVICES</span>
 
@@ -185,37 +146,37 @@
                         <div style='vertical-align: top;width: 180px;margin-right:5px;display:inline-block'>
                             <div class="menuHeader">Genomics</div>
                             <div class="menuItems">
-                                <div><a class="navigationLink" href="/app/Assembly">Assembly</a></div>
-                                <div><a class="navigationLink" href="/app/Annotation">Annotation</a></div>
-                                <div><a class="navigationLink" href="/app/BLAST">BLAST</a></div>
-                                <div><a class="navigationLink" href="/app/Variation">Variation Analysis</a>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/Assembly">Assembly</a></div>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/Annotation">Annotation</a></div>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/BLAST">BLAST</a></div>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/Variation">Variation Analysis</a>
                                 </div>
                             </div>
                             <p></p>
                             <div class="menuHeader">Transcriptomics</div>
                             <div class="menuItems">
-                                <div><a class="navigationLink" href="/app/Expression">Expression Import</a>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/Expression">Expression Import</a>
                                 </div>
-                                <div><a class="navigationLink" href="/app/Rnaseq">RNA-Seq Analysis</a></div>
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/Rnaseq">RNA-Seq Analysis</a></div>
                             </div>
                         </div>
                         <div style="vertical-align:top;width:180px;display:inline-block">
                             <div class="menuHeader">Protein Tools</div>
                             <div class="menuItems">
-                                <div><a class="navigationLink" href="/app/ProteinFamily">Protein Family
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/ProteinFamily">Protein Family
                                         Sorter</a></div>
-                                <div><a class="navigationLink" href="/app/SeqComparison">Proteome
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/SeqComparison">Proteome
                                         Comparison</a></div>
                             </div>
                             <p></p>
                             <div class="menuHeader">Metabolomics</div>
                             <div class="menuItems">
-                                <div><a class="navigationLink" href="/app/ComparativePathway">Comparative
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/ComparativePathway">Comparative
                                         Pathway</a></div>
-                                <div><a class="navigationLink" href="/app/Reconstruct">Model
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/Reconstruct">Model
                                         Reconstruction</a></div>
                                 <!-- <div class="menuHeader">Utilities</div>
-                                <div><a class="navigationLink" href="/app/IDMapper">ID Mapper</a></div>-->
+                                <div><a class="navigationLink" href="<%- request.config.get("p3Home") %>/app/IDMapper">ID Mapper</a></div>-->
                             </div>
                         </div>
                     </div>
@@ -225,23 +186,15 @@
                 <span>HELP</span>
 
                 <div data-dojo-type="p3/widget/TooltipDialog">
-                    <div><a class="DialogButton" rel="quickstart:">PATRIC Quickstart</a></div>
-                    <div><a class="" href="/content/Tutorials">Tutorials</a></div>
-                    <div><a class="" href="/content/UserGuide">User Guides</a></div>
-                    <hr>
-                    <div><a class="DialogButton" rel="reportProblem:">Provide Feedback</a></div>
+                    <div><a class="" href="<%- request.config.get("p3Home") %>/content/Tutorials">Tutorials</a></div>
+                    <div><a class="" href="<%- request.config.get("p3Home") %>/content/UserGuide">User Guides</a></div>
                 </div>
             </div>
 
         </div>
-        <div style="padding: 6px 10px 2px 2px; width: 120px; flex: 0.7">
-            <input style="width:100%;font-size:1em;" class="showOnLoad dijitHidden"
-                   data-dojo-type="p3/widget/GlobalSearch"/>
-        </div>
-
         <div class="HideWithAuth authLinks showOnLoad dijitHidden" style="padding: 3px 2px 0 0; width:125px;">
-            <div class="RegistrationButton registrationLink" data-dojo-type="dijit/form/Button">Register</div>
-            <div class="LoginButton loginLink" data-dojo-type="dijit/form/Button">Login</div>
+            <a href="/register"><div class="RegistrationButton" data-dojo-type="dijit/form/Button">Register</div></a>
+            <a href="/login"><div class="LoginButton" data-dojo-type="dijit/form/Button">Login</div></a>
         </div>
 
         <div>
@@ -251,22 +204,22 @@
                 <div data-dojo-type="p3/widget/TooltipDialog">
                     <div><a class="TopMenuLink" href="http://enews.patricbrc.org/" title="News" target="_blank">PATRIC
                             News</a></div>
-                    <div><a class="TopMenuLink" href="/content/publications"
+                    <div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/publications"
                             title="Publications">Publications</a></div>
                     <hr>
 
-                    <!--<div><a class="TopMenuLink" href="/content/workshops" title="Upcoming Workshops"> Upcoming Workshops </a> </div> -->
+                    <!--<div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/workshops" title="Upcoming Workshops"> Upcoming Workshops </a> </div> -->
 
-                    <div><a class="TopMenuLink" href="/content/about" title="About PATRIC">About PATRIC </a>
+                    <div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/about" title="About PATRIC">About PATRIC </a>
                     </div>
-                    <div><a class="TopMenuLink" href="/content/CitePATRIC" title="Cite PATRIC">Cite PATRIC</a>
+                    <div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/CitePATRIC" title="Cite PATRIC">Cite PATRIC</a>
                     </div>
-                    <div><a class="TopMenuLink" href="/content/SWG" title="Scientific Working Group">Scientific
+                    <div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/SWG" title="Scientific Working Group">Scientific
                             Working Group</a></div>
-                    <div><a class="TopMenuLink" href="/content/personnel" title="Personnel">Personnel</a></div>
-                    <div><a class="TopMenuLink" href="/content/collaborators" title="Collaborators">Collaborators</a>
+                    <div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/personnel" title="Personnel">Personnel</a></div>
+                    <div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/collaborators" title="Collaborators">Collaborators</a>
                     </div>
-                    <div><a class="TopMenuLink" href="/content/related_sites" title="Related Sites">Related
+                    <div><a class="TopMenuLink" href="<%- request.config.get("p3Home") %>/content/related_sites" title="Related Sites">Related
                             Sites</a></div>
                     <div><a class="TopMenuLink" href="https://github.com/cidvbi/PATRIC"
                             title="System Architecture" target="_blank">System Architecture</a></div>
